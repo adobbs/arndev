@@ -48,7 +48,11 @@
 
 	    // Toggle for nav menu
 	    $('.menu-button').click(function() {
-	        $this.slideToggle(settings.animationSpeed);
+	     		$this.toggle();
+	     		$('.secondary-menu').hide();
+	        $('.menu-button').text('Menu');
+	        $('.back-button').hide();
+	        $('#mobile-nav').hide();
 	    });
 	
 	    // Closes nav menu after links clicked/touched
@@ -59,12 +63,25 @@
 	    // Toggle click for secondary-menus on touch and or small screens
 	    $('.item-with-ul').click(function() {
 	        $(this).find('.secondary-menu').slideToggle(settings.animationSpeed);
+	        var menuText = $(this).find('.link-with-ul').text();
+	        $('.menu-button').text(menuText);
+	        $('.back-button').toggle();
+	        $('#nav').hide();
+	        $('#mobile-nav').show();
 	    });
 
-	    // Toggle click for tertiary-menus on touch and or small screens
-	    // $('.secondary-item-with-ul').click(function() {
-	    //     $(this).find('.tertiary-menu').slideToggle(settings.animationSpeed);
-	    // });
+	    $('.secondary-item-with-ul').click(function() {
+	        $(this).find('.secondary-menu').slideToggle(settings.animationSpeed);
+	    });
+
+
+	    $('.back-button').click(function() {
+	    	$('.secondary-menu').hide();
+	    	$('.menu-button').text('Menu');
+	    	$('.back-button').hide();
+	    	$('#mobile-nav').hide();
+	    	$this.show();
+	    });
 
 	    // Call on resize.
 	    $(window).on('resize', resizer);
