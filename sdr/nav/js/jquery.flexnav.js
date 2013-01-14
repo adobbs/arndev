@@ -56,10 +56,15 @@
 	        $this.hide();
 	    });
 	
-	    // Toggle click for sub-menus on touch and or small screens
+	    // Toggle click for secondary-menus on touch and or small screens
 	    $('.item-with-ul').click(function() {
-	        $(this).find('.sub-menu').slideToggle(settings.animationSpeed);
+	        $(this).find('.secondary-menu').slideToggle(settings.animationSpeed);
 	    });
+
+	    // Toggle click for tertiary-menus on touch and or small screens
+	    // $('.secondary-item-with-ul').click(function() {
+	    //     $(this).find('.tertiary-menu').slideToggle(settings.animationSpeed);
+	    // });
 
 	    // Call on resize.
 	    $(window).on('resize', resizer);

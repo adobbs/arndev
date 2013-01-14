@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
     <link href="css/flexnav.css" rel="stylesheet" type="text/css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -14,60 +15,75 @@
 </head>
 
 <body>
-
 	<div class="container">
-		<h1 class="page-title">Global Navigation</h1>
-		<div class='menu-button'>Menu</div>	
-		<nav>
-			<ul id="nav" role="navigation">
-				<li class="top-level item-with-ul"><a href="" class="link-with-ul">Banking</a>
-					<ul class="sub-menu">
-						<li><a href="#content">Checking</a></li>
-						<li><a href="">Savings</a></li>
-						<li><a href="">Sub 1 Item #3</a></li>
-						<li><a href="">Sub 1 Item #4</a></li>
-					</ul>
-				</li>
+		<header class="site-header">
+			<h1>Global Navigation</h1>
+			<div class='menu-button'>Menu</div>	
+			<nav>
+				<ul id="nav" class="navigation">
+					<li class="top-level item-with-ul"><a href="#" class="link-with-ul">Banking</a>
+						<ul class="secondary-menu">
+							<li class="secondary-item-with-ul"><a href="#">Checking</a></li>
+								<ul class="tertiary-menu">
+									<li><a href="#">Basic Checking</a></li>
+									<li><a href="#">Classic Checking</a></li>
+									<li><a href="#">Preferred Checking</a></li>
+									<li><a href="#">Premier Checking</a></li>
+									<li><a href="#">Student Checking</a></li>
+									<li><a href="#">Flat Fee Basic Checking</a></li>
+								</ul>
+							<li><a href="#">Savings</a></li>
+							<li><a href="#">Money Market</a></li>
+						</ul>
+					</li>
 
-				<li class="top-level item-with-ul"><a href="" class="link-with-ul">Credit &amp; Loans</a>
-					<ul class="sub-menu">
-						<li><a href="">Sub 1 Item #1</a></li>
-						<li><a href="">Sub 1 Item #2</a></li>
-						<li><a href="">Sub 1 Item #3</a></li>
-					</ul>
-				</li>
+					<li class="top-level item-with-ul"><a href="#" class="link-with-ul">Credit &amp; Loans</a>
+						<ul class="secondary-menu">
+							<li><a href="#">Checking</a></li>
+							<li><a href="#">Savings</a></li>
+							<li><a href="#">Money Market</a></li>
+						</ul>
+					</li>
 
-				<li class="top-level"><a href="">Investments &amp; Insurance</a>
-				</li>
-				<li class="top-level item-with-ul"><a href="" class="link-with-ul">About Us</a>
-					<ul class="sub-menu">
-						<li><a href="">Sub 1 Item #1</a></li>
-						<li><a href="">Sub 1 Item #1</a></li>
-						<li><a href="">Sub 1 Item #1</a></li>
-					</ul>
-				</li>
+					<li class="top-level item-with-ul"><a href="#">Investments &amp; Insurance</a>
+						<ul class="secondary-menu">
+							<li><a href="#">Checking</a></li>
+							<li><a href="#">Savings</a></li>
+							<li><a href="#">Money Market</a></li>
+						</ul>
+					</li>
 
-				<li class="top-level"><a href="">Item #5</a>
-				</li>
-			</ul>
-		</nav>
+					<li class="top-level item-with-ul"><a href="#" class="link-with-ul">About Us</a>
+						<ul class="secondary-menu">
+							<li><a href="#">Checking</a></li>
+							<li><a href="#">Savings</a></li>
+							<li><a href="#">Money Market</a></li>
+						</ul>
+					</li>
 
-		<section role="main" id="content">
-			<p>It's the Global Nav! \o/</p>
+					<li class="top-level"><a href="">Item #5</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<section id="content">
+			<p>Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.</p>
 		</section>
 
-		<footer class="site-footer" role="contentinfo">
+		<footer class="site-footer">
 			<p>WIP code by Andrew Dobbs, User Experience Architect @ Arnold Worldwide</p>
 			<p>Based on Jason Weaver's <a href="http://jasonweaver.name/lab/flexiblenavigation/">FlexNav</a></p>
-    	</footer>
+    </footer>
 	</div>
 
 	<script>
-        $("[role='navigation']").flexNav({
+        $(".navigation").flexNav({
             'breakpoint' : '800', // default
             'animationSpeed' : 'fast' // default            
         });
-    </script>
+	</script>
 </body>
 
 </html>
