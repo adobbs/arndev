@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
     <title>Global Navigation</title>
-    <meta name="description" content="">
+    <meta name="description" content="Responsive navigation with support for tertiary-level items.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="css/normalize.css" rel="stylesheet" type="text/css">
@@ -18,62 +18,64 @@
 	<div class="container">
 		<header class="site-header">
 			<h1>Global Navigation</h1>
-			<div class='back-button'><img src="images/back-button.png" /></div>
-			<div class='menu-button'>Menu</div>	
+			<div class="menu-button">
+				<img src="images/back-button.png" class="back-button" />
+				<span class="menu-text">Menu</span>
+			</div>
 			<nav>
-				<ul id="nav" class="navigation">
-					<li class="top-level item-with-ul"><a href="#" class="link-with-ul">Banking</a>
-						<ul class="secondary-menu">
+				<ul class="navigation primary-navigation">
+					<li class="primary-item"><span>Banking</span>
+						<ul class="secondary-list">
 							<li><a href="#">Checking</a></li>
 							<li><a href="#">Savings</a></li>
 							<li><a href="#">Money Market</a></li>
 						</ul>
 					</li>
 
-					<li class="top-level item-with-ul"><a href="#" class="link-with-ul">Credit &amp; Loans</a>
-						<ul class="secondary-menu">
-							<li><a href="#">Checking</a></li>
-							<li><a href="#">Savings</a></li>
-							<li><a href="#">Money Market</a></li>
+					<li class="primary-item"><span>Credit &amp; Loans</span>
+						<ul class="secondary-list">
+							<li><a href="#">Credit Cards</a></li>
+							<li><a href="#">Lines of Credit</a></li>
+							<li><a href="#">Mortgages</a></li>
 						</ul>
 					</li>
 
-					<li class="top-level item-with-ul"><a href="#" class="link-with-ul">Investments &amp; Insurance</a>
-						<ul class="secondary-menu">
-							<li><a href="#">Checking</a></li>
-							<li><a href="#">Savings</a></li>
-							<li><a href="#">Money Market</a></li>
+					<li class="primary-item"><span>Investments &amp; Insurance</span>
+						<ul class="secondary-list">
+							<li><a href="#">Wealth Management</a></li>
+							<li><a href="#">Insurance</a></li>
+							<li><a href="#">Protection</a></li>
 						</ul>
 					</li>
 
-					<li class="top-level item-with-ul"><a href="#" class="link-with-ul">About Us</a>
-						<ul class="secondary-menu">
-							<li><a href="#">Checking</a></li>
-							<li><a href="#">Savings</a></li>
-							<li><a href="#">Money Market</a></li>
+					<li class="primary-item"><span>About Us</span>
+						<ul class="secondary-list">
+							<li><a href="#">Our History</a></li>
+							<li><a href="#">Media Center</a></li>
+							<li><a href="#">Careers</a></li>
 						</ul>
 					</li>
 				</ul>
 
-				<ul id="mobile-nav" class="mobile-navigation">
-					<li class="top-level secondary-item-with-ul"><a href="#" class="secondary-link-with-ul">Checking</a>
-						<ul class="secondary-menu">
+				<ul class="navigation secondary-navigation">
+					<li class="secondary-item arrow-down"><a href="#">Checking</a>
+						<ul class="tertiary-list">
 							<li><a href="#">Classic Checking</a></li>
 							<li><a href="#">Preferred Checking</a></li>
 							<li><a href="#">Premier Checking</a></li>
 						</ul>
 					</li>
 
-					<li class="top-level secondary-item-with-ul"><a href="#" class="secondary-link-with-ul">Savings</a>
-						<ul class="secondary-menu">
+					<li class="secondary-item arrow-down"><a href="#">Savings</a>
+						<ul class="tertiary-list">
 							<li><a href="#">Classic Savings</a></li>
 							<li><a href="#">Preferred Savings</a></li>
 							<li><a href="#">Premier Savings</a></li>
 						</ul>
 					</li>
 
-					<li class="top-level secondary-item-with-ul"><a href="#" class="secondary-link-with-ul">Money Market</a>
-						<ul class="secondary-menu">
+					<li class="secondary-item arrow-down"><a href="#">Money Market</a>
+						<ul class="tertiary-list">
 							<li><a href="#">Classic Money Market</a></li>
 							<li><a href="#">Preferred Money Market</a></li>
 							<li><a href="#">Premier Money Market</a></li>
@@ -83,7 +85,7 @@
 			</nav>
 		</header>
 
-		<section id="content">
+		<section class="content">
 			<p>Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.</p>
 			<p>Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.</p>
 		</section>
@@ -95,10 +97,10 @@
 	</div>
 
 	<script>
-        $(".navigation").flexNav({
-            'breakpoint' : '800', // default
-            'animationSpeed' : 'fast' // default            
-        });
+		$(".navigation").flexNav({
+			'breakpoint' : '700', // default
+			'animationSpeed' : 'fast' // default            
+		});
 	</script>
 </body>
 

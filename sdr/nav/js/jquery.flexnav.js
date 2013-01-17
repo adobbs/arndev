@@ -1,5 +1,6 @@
 /*global jQuery */
-/*!	
+/* Code by Andrew Dobbs is based on:
+*	
 * FlexNav.js 0.3
 *
 * Copyright 2012, Jason Weaver http://jasonweaver.name
@@ -11,81 +12,101 @@
 
 (function($) {
 	$.fn.flexNav = function(options) {
-	    var settings = $.extend({
-	        'breakpoint': '800',
-	        'animationSpeed': 'fast'
-	    },
-	    options);
+		var settings = $.extend({
+			'breakpoint': '700',
+			'animationSpeed': 'fast'
+		},
+		options);
 
-	    var $this = $(this);
+		var $this = $(this);
 
-	    var resizer = function() {
-	        if ($(window).width() < settings.breakpoint) {
-	            $("body").removeClass("lg-screen").addClass("sm-screen");
-	        }
-	        else {
-	            $("body").removeClass("sm-screen").addClass("lg-screen");
-	        }
-	        if ($(window).width() >= settings.breakpoint) {
-	            $this.show();
-	        }
-	    };
+		var resizer = function() {
+			if ($(window).width() < settings.breakpoint) {
+				$("body").removeClass("lg-screen").addClass("sm-screen");
+			}
+			else {
+				$("body").removeClass("sm-screen").addClass("lg-screen");
+			}
 
-	    // Call once to set.
-	    resizer();
+			if ($(window).width() >= settings.breakpoint) {
+				$('.primary-navigation').show();
+				$('.tertiary-list').hide();
+				$('.menu-text').text('Menu').css("margin","0");
+				$('.back-button').hide();
+				$('.secondary-navigation').hide();
+				$('.secondary-item').removeClass('arrow-up').addClass('arrow-down');
+			}
 
-	    // Function for testing touch screens
-	    function is_touch_device() {
-	        return !! ('ontouchstart' in window);
-	    }
+			if ($(window).width() < settings.breakpoint && is_touch_device()) {
+			 	$('.secondary-list').hide();
+			}
+		};
 
-	    // Set class on html element for touch/no-touch
-	    if (is_touch_device()) {
-	        $('html').addClass('flexNav-touch');
-	    } else {
-	        $('html').addClass('flexNav-no-touch');
-	    }
+		// Call once to set.
+		resizer();
 
-	    // Toggle for nav menu
-	    $('.menu-button').click(function() {
-	     		$this.toggle();
-	     		$('.secondary-menu').hide();
-	        $('.menu-button').text('Menu');
-	        $('.back-button').hide();
-	        $('#mobile-nav').hide();
-	    });
-	
-	    // Closes nav menu after links clicked/touched
-	    $this.find('a').click(function() {
-	        $this.hide();
-	    });
-	
-	    // Toggle click for secondary-menus on touch and or small screens
-	    $('.item-with-ul').click(function() {
-	        $(this).find('.secondary-menu').slideToggle(settings.animationSpeed);
-	        var menuText = $(this).find('.link-with-ul').text();
-	        $('.menu-button').text(menuText);
-	        $('.back-button').toggle();
-	        $('#nav').hide();
-	        $('#mobile-nav').show();
-	    });
+		// Function for testing touch screens
+		function is_touch_device() {
+			return !! ('ontouchstart' in window);
+		}
 
-	    $('.secondary-item-with-ul').click(function() {
-	        $(this).find('.secondary-menu').slideToggle(settings.animationSpeed);
-	    });
+		// Set class on html element for touch/no-touch
+		if (is_touch_device()) {
+			console.log("touch device detected");
+			$('html').addClass('flexNav-touch');
+		} else {
+			console.log("touch device NOT detected");
+			$('html').addClass('flexNav-no-touch');
+		}
+
+		// Toggle for nav menu
+		$('.menu-button').click(function() {
+			$this.toggle();
+			$('.tertiary-list').hide();
+			$('.menu-text').text('Menu').css("margin","0");
+			$('.back-button').hide();
+			$('.secondary-navigation').hide();
+			$('.secondary-item').removeClass('arrow-up').addClass('arrow-down');
+		});
+
+		$('.back-button').click(function() {
+			$('.tertiary-list').hide();
+			$('.menu-text').text('Menu').css("margin","0");
+			$('.back-button').hide();
+			$('.secondary-navigation').hide();
+			$('.secondary-item').removeClass('arrow-up').addClass('arrow-down');
+		});		
+
+		// Closes nav menu after links clicked/touched
+		$this.find('a').click(function() {
+			$this.hide();
+		});
+
+		// Toggle click for tertiary-list on touch and or small screens
+		$('.primary-item').click(function() {
+			if ($(window).width() < settings.breakpoint) {
+				$(this).find('.tertiary-list').slideToggle(settings.animationSpeed);
+				var menuText = $(this).find('span').text();
+				$('.menu-text').text(menuText).css("margin","2em");
+				$('.back-button').show();
+				$('.primary-navigation').hide();
+				$('.secondary-navigation').show();
+			} else if ($(window).width() >= settings.breakpoint && is_touch_device()) {
+				$(this).find('.secondary-list').toggle();
+			}
+		});
 
 
-	    $('.back-button').click(function() {
-	    	$('.secondary-menu').hide();
-	    	$('.menu-button').text('Menu');
-	    	$('.back-button').hide();
-	    	$('#mobile-nav').hide();
-	    	$this.show();
-	    });
+		$('.secondary-item').click(function() {
+			$(this).find('.tertiary-list').slideToggle(settings.animationSpeed);
+			if ($(this).hasClass('arrow-down')) {
+				$(this).removeClass('arrow-down').addClass('arrow-up');
+			} else {
+				$(this).removeClass('arrow-up').addClass('arrow-down');				
+			}
+		});
 
-	    // Call on resize.
-	    $(window).on('resize', resizer);
-
+		// Call on resize.
+		$(window).on('resize', resizer);
 	};
-
 })(jQuery);

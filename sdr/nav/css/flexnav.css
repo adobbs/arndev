@@ -1,26 +1,3 @@
-/* Reset */
-/*html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	font-family: clean, sans-serif;
-}*/
-
 /* Layout
 -------------------------------------------------------------- */
 body {
@@ -52,12 +29,15 @@ ul {
 	text-align: center;
 }
 
-.secondary-menu, .back-button, #mobile-nav {
+.secondary-list, .tertiary-list {
 	display: none;
 }
 
-#mobile-nav {
+.back-button {
 	display: none;
+	margin: -1em;
+	padding-bottom: 0.2em;
+	padding-left: 0.1em;
 }
 
 /* Links & Navigation
@@ -71,17 +51,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-.navigation {
-	margin: 0 auto;
-	width: 100%;
-	background-color: #333;		
-}
-
-.flexNav-touch .navigation,
-.flexNav-no-touch .navigation {	
-	display: none;
-}
-
 .menu-button {
 	display: block;
 	padding: 1em;
@@ -91,6 +60,18 @@ a:hover {
 	background-repeat: no-repeat;
 	background-position: 93% 12px;
 	cursor: pointer;
+}
+
+.navigation {
+	margin: 0 auto;
+	width: 100%;
+	background-color: #333;
+	display: none;	
+}
+
+.flexNav-touch .navigation,
+.flexNav-no-touch .navigation {	
+	display: none;
 }
 
 .navigation:after { /* clearfix */
@@ -110,18 +91,22 @@ a:hover {
 	width: 100%;		
 }
 
+.navigation li span,
 .navigation li a {
-	margin-right: 20%;
 	display: block;
 	color: #ddd;
-	border-bottom: 1px solid #111;			
 }
 
-.navigation li a.link-with-ul {
-	border-right: 1px solid #222;		
+.secondary-navigation li a {
+	margin-right: 20%;
 }
 
-.navigation .top-level a {
+.primary-navigation li.primary-item {
+	cursor: pointer;
+}
+
+.navigation span,
+.navigation a {
 	font-size: 75%;
 	position: relative;
 	display: block;
@@ -132,128 +117,42 @@ a:hover {
 
 .navigation li ul {
 	width: 100%;
-	position: relative;
-	border-top: 1px solid #333;
-	border-bottom: 1px solid #333;
 }
 
 .navigation li ul li {
 	float: none;
-	width: 100%;			
+	width: 100%;
 }
 
 .navigation li ul li a {
 	display: block;
-	background-color: #333;			
-}
-
-/* Mobile nav styles */
-.mobile-navigation {
-	margin: 0 auto;
-	width: 100%;
-	background-color: #333;		
-}
-
-.flexNav-touch .mobile-navigation,
-.flexNav-no-touch .mobile-navigation {	
-	display: none;
-}
-
-.menu-button {
-	display: block;
-	padding: 1em;
-	background: #000;
-	color: #fff;
-	background-image: url('../images/menu-icon.png');
-	background-repeat: no-repeat;
-	background-position: 93% 12px;
-	cursor: pointer;
-}
-
-.mobile-navigation:after { /* clearfix */
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
-}
-
-.mobile-navigation li {
-	position: relative;
-	list-style: none;
-	display: block;	
-	background-color: #333;	
-	width: 100%;		
-}
-
-.mobile-navigation li a {
-	margin-right: 20%;
-	display: block;
-	color: #ddd;
-	border-bottom: 1px solid #111;			
-}
-
-.mobile-navigation li a.link-with-ul {
-	border-right: 1px solid #222;		
-}
-
-.mobile-navigation .top-level a {
-	font-size: 75%;
-	position: relative;
-	display: block;
 	background-color: #333;
-	padding: 1em;
-	z-index: 2;
 }
 
-.mobile-navigation li ul {
-	width: 100%;
-	position: relative;
-	border-top: 1px solid #333;
-	border-bottom: 1px solid #333;
-}
-
-.mobile-navigation li ul li {
-	float: none;
-	width: 100%;			
-}
-
-.mobile-navigation li ul li a {
-	display: block;
-	background-color: #333;			
-}
-
-
+/* Media Queries
+-------------------------------------------------------------- */
 @media all and (max-width: 699px) {
-	.mobile-navigation li.item-with-ul,
-	.mobile-navigation li.secondary-item-with-ul {	
+	.secondary-navigation li.secondary-item {	
 		background-color: #555;
 	}
 
-	.mobile-navigation .item-with-ul, 
-	.mobile-navigation .secondary-item-with-ul {
+	.arrow-down {
 		background-image: url('../images/arrow-down.png');
 		background-repeat: no-repeat;
 		background-position: 91.5% 15px;	
 	}
 
-}
-
-/* Media Queries */
-@media all and (max-width: 699px) {
-	.navigation li.item-with-ul,
-	.navigation li.secondary-item-with-ul {	
-		background-color: #555;
+	.arrow-up {
+		background-image: url('../images/arrow-up.png');
+		background-repeat: no-repeat;
+		background-position: 91.5% 15px;		
 	}
 
-	.navigation .item-with-ul, 
-	.navigation .secondary-item-with-ul {
-		background-image: url('../images/arrow-down.png');
+	.primary-navigation li span {
+		background-image: url('../images/arrow-right.png');
 		background-repeat: no-repeat;
 		background-position: 91.5% 15px;	
 	}
-
 }
 
 @media all and (min-width: 700px) {
@@ -261,8 +160,8 @@ a:hover {
 		font-size: 112.5%;
 	}
 
-	.flexNav-touch .navigation,
-	.flexNav-no-touch .navigation {
+	.flexNav-touch .primary-navigation,
+	.flexNav-no-touch .primary-navigation {
 		display: block;	
 	}
 
@@ -270,7 +169,7 @@ a:hover {
 		display: none;
 	}
 
-	.navigation li {
+	.primary-navigation li {
 		position: relative;
 		list-style: none;
 		float: left;
@@ -279,19 +178,19 @@ a:hover {
 		width: 25%;		
 	}
 
-	.flexNav-no-touch .item-with-ul:hover > ul,
-	.flexNav-no-touch .secondary-item-with-ul:hover > ul { 
+	.primary-navigation span {
+		z-index: 1; /* added, double-check */
+	}
+
+	.flexNav-no-touch .primary-item:hover > ul,
+	.flexNav-no-touch .secondary-item:hover > ul { 
 		opacity: 1;
-		top: 3.1em;	
-		position: absolute;	
+		top: 2.1em;	
+		position: absolute;
+		z-index: 2; /* added, double-check */
 	}
 
-	.navigation li a {
-		border-left: 1px solid #000;
-		border-bottom: none;		
-	}
-
-	.flexNav-no-touch .navigation li ul {
+	.flexNav-no-touch .primary-navigation li ul {
 		position: absolute; 
 		top: auto;
 		left: 0;
@@ -301,11 +200,7 @@ a:hover {
 		z-index: 1;			
 	}
 
-	.navigation li ul li a {
-		border-bottom: none;	
-	}
-
-	.flexNav-touch .navigation li ul.secondary-menu {
+	.flexNav-touch .primary-navigation li ul.secondary-list {
 		position: absolute; 
 		top: auto;
 		left: 0;
@@ -313,14 +208,12 @@ a:hover {
 		z-index: 1;					
 	}	
 
-	.flexNav-no-touch .item-with-ul:hover > ul,
-	.flexNav-no-touch .secondary-item-with-ul:hover > ul { 
+	.flexNav-no-touch .primary-item:hover > ul,
+	.flexNav-no-touch .secondary-item:hover > ul { 
 		visibility: visible;
 		opacity: 1;
 		height: auto;
-		display: block;	
-		border-right: 1px solid #000;
-		border-bottom: 1px solid #000;		
+		display: block;
 	}			
 }
 
